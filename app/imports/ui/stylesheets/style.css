@@ -6,3 +6,6 @@ body {
 #login-buttons a, .accounts-dialog a {
   color: ghostwhite;
 }
+#login-buttons .login-close-text {
+  color: black;
+}
