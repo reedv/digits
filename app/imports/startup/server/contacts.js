@@ -9,7 +9,7 @@ import { _ } from 'meteor/underscore';
  * A list of Stuff to pre-fill the Collection.
  * @type {*[]}
  */
-const stuffSeeds = [
+const contactsSeeds = [
   {
     firstName: 'Reed', lastName: 'Villanueva',
     address: 'Kaneohe, HI',
@@ -31,7 +31,7 @@ const stuffSeeds = [
  * Initialize the Stuff collection if empty with seed data.
  */
 if (Contacts.find().count() === 0) {
-  _.each(stuffSeeds, function seedStuffs(stuff) {
-    Contacts.insert(stuff);
+  _.each(contactsSeeds, function seedContacts(contact) {
+    Contacts.insert(contact);
   });
 }
