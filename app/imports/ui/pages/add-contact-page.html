@@ -9,7 +9,10 @@
           <div class="field">
             <input type="text" name="firstName" id="firstName"
                    placeholder="First Name">
-            <!-- all fields in this form are required -->
+            <!--
+            all fields in this form are required
+            if this template's displayFieldError(input.id) returns truthy, display error
+            -->
             {{#if displayFieldError 'firstName' }}
             <div class="ui error message">
               <p>You must specify your name.</p>

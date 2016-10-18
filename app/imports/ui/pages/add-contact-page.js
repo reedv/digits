@@ -12,7 +12,7 @@ const displayErrorMessages = 'displayErrorMessages';
 
 Template.Add_Contact_Page.onCreated(function onCreated() {
   // use reactive dict to store error messages
-  this.messageFlags = new ReactiveDict();
+  this.messageFlags = new ReactiveDict();  // recall, reactive dicts can store template key/vals w/out refreshing
   this.messageFlags.set(displayErrorMessages, false);
 
   // attach our context for validation to the ContactsSchema (set context name to match the template name)
