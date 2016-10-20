@@ -2,79 +2,86 @@
   <!-- Make sure all subcriptions for this template are available to us -->
   {{#if Template.subscriptionsReady}}
 
-  <div class="ui container" style="margin: 20px">
-    <form class="ui form contact-data-form {{ errorClass }}">
-      <h4 class="ui dividing header">Edit Contact Information</h4>
+    <div class="ui container" style="margin: 20px">
+      <form class="ui form contact-data-form {{ errorClass }}">
+        <h4 class="ui dividing header">Edit Contact Information</h4>
 
-      <div class="field">
-        <label>Name</label>
-        <div class="two fields">
-          <div class="field">
-            <input type="text" name="firstName" id="firstName"
-                   placeholder="{{ contactDataField 'firstName' }}"
-                   value="{{ contactDataField 'firstName' }}">
-            {{#if displayFieldError 'firstName' }}
-            <div class="ui error message">
-              <p>You must specify your first name.</p>
-            </div>
-            {{/if}}
-          </div>
-          <div class="field">
-            <input type="text" name="lastName" id="lastName"
-                   placeholder="{{ contactDataField 'lastName' }}"
-                   value="{{ contactDataField 'lastName' }}">
-            {{#if displayFieldError 'lastName' }}
-            <div class="ui error message">
-              <p>You must specify your last name.</p>
-            </div>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Address</label>
         <div class="field">
-          <input type="text" name="address" id="address"
-                 placeholder="{{ contactDataField 'address' }}"
-                 value="{{ contactDataField 'address' }}">
-          {{#if displayFieldError 'address' }}
-          <div class="ui error message">
-            <p>You must specify your address.</p>
-          </div>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field">
-        <div class="two fields">
-          <div class="field">
-            <label>Phone</label>
-            <input type="text" name="phone" id="phone"
-                   placeholder="{{ contactDataField 'phone' }}"
-                   value="{{ contactDataField 'phone' }}">
-            {{#if displayFieldError 'phone' }}
-            <div class="ui error message">
-              <p>You must specify your phone number.</p>
+          <label>Name</label>
+          <div class="two fields">
+            <div class="field">
+              <input type="text" name="firstName" id="firstName"
+                     placeholder="{{ contactDataField 'firstName' }}"
+                     value="{{ contactDataField 'firstName' }}">
+              {{#if displayFieldError 'firstName' }}
+                <div class="ui error message">
+                  <p>You must specify your first name.</p>
+                </div>
+              {{/if}}
             </div>
-            {{/if}}
-          </div>
-          <div class="field">
-            <label>Email</label>
-            <input type="text" name="email" id="email"
-                   placeholder="{{ contactDataField 'email' }}"
-                   value="{{ contactDataField 'email' }}">
-            {{#if displayFieldError 'email' }}
-            <div class="ui error message">
-              <p>You must specify your email.</p>
+            <div class="field">
+              <input type="text" name="lastName" id="lastName"
+                     placeholder="{{ contactDataField 'lastName' }}"
+                     value="{{ contactDataField 'lastName' }}">
+              {{#if displayFieldError 'lastName' }}
+                <div class="ui error message">
+                  <p>You must specify your last name.</p>
+                </div>
+              {{/if}}
             </div>
-            {{/if}}
           </div>
         </div>
-      </div>
+        <div class="field">
+          <label>Address</label>
+          <div class="field">
+            <input type="text" name="address" id="address"
+                   placeholder="{{ contactDataField 'address' }}"
+                   value="{{ contactDataField 'address' }}">
+            {{#if displayFieldError 'address' }}
+              <div class="ui error message">
+                <p>You must specify your address.</p>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="two fields">
+            <div class="field">
+              <label>Phone</label>
+              <input type="text" name="phone" id="phone"
+                     placeholder="{{ contactDataField 'phone' }}"
+                     value="{{ contactDataField 'phone' }}">
+              {{#if displayFieldError 'phone' }}
+                <div class="ui error message">
+                  <p>You must specify your phone number.</p>
+                </div>
+              {{/if}}
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input type="text" name="email" id="email"
+                     placeholder="{{ contactDataField 'email' }}"
+                     value="{{ contactDataField 'email' }}">
+              {{#if displayFieldError 'email' }}
+                <div class="ui error message">
+                  <p>You must specify your email.</p>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
 
-      <button class="ui button" tabindex="0"> Update</button>
-      <button class="ui button delete" tabindex="0"> Delete</button>
-    </form>
-  </div>
+        <button class="ui button" tabindex="0"> Update</button>
+        {{#if deleteClass}}
+          <button class="ui red inverted button confirm-delete" tabindex="0"> Do you
+            really want to delete this entry?
+          </button>
+        {{else}}
+          <button class="ui button delete" tabindex="0"> Delete</button>
+        {{/if}}
+
+      </form>
+    </div>
 
   {{/if}}
 </template>

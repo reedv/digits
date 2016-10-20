@@ -12,6 +12,7 @@ import { Contacts, ContactsSchema } from '../../api/contacts/contacts.js';
 /* eslint-disable object-shorthand, no-unused-vars */
 
 const displayErrorMessages = 'displayErrorMessages';
+const confirmDelete = 'confirmDelete';
 
 Template.Edit_Contact_Page.onCreated(function onCreated() {
   this.autorun(() => {
@@ -19,6 +20,7 @@ Template.Edit_Contact_Page.onCreated(function onCreated() {
   });
   this.messageFlags = new ReactiveDict();
   this.messageFlags.set(displayErrorMessages, false);
+  this.messageFlags.set(confirmDelete, false);
   this.context = ContactsSchema.namedContext('Edit_Contact_Page');
 });
 
@@ -39,6 +41,9 @@ Template.Edit_Contact_Page.helpers({
   displayFieldError(fieldName) {
     const errorKeys = Template.instance().context.invalidKeys();
     return _.find(errorKeys, (keyObj) => keyObj.name === fieldName);
+  },
+  deleteClass() {
+    return Template.instance().messageFlags.get(confirmDelete);
   },
 });
 
@@ -90,8 +95,15 @@ Template.Edit_Contact_Page.events({
 
   'click .delete'(event, instance) {
     event.preventDefault();
+
+    instance.messageFlags.set(confirmDelete, true);
+  },
+
+  'click .confirm-delete'(event, instance) {
+    event.preventDefault();
     Contacts.remove(FlowRouter.getParam('id'));
-    
+
+    instance.messageFlags.set(confirmDelete, false);
     // redirect back to Home_Page
     FlowRouter.go('Home_Page');
   },
