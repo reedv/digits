@@ -23,7 +23,8 @@
         <td>{{contact.phone}}</td>
         <td>{{contact.email}}</td>
         <!-- link to page to edit this contact -->
-        <td><a href="{{pathFor 'Edit_Contact_Page' _id=contact._id}}">Edit</a>
+        <!-- to see whether to binf to 'id' or '_id', see app/imports/startup/client/router.js for url info-->
+        <td><a href="{{pathFor 'Edit_Contact_Page' id=contact._id}}">Edit</a>
         </td>
       </tr>
       {{/each}}
