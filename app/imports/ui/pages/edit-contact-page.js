@@ -87,4 +87,12 @@ Template.Edit_Contact_Page.events({
       instance.messageFlags.set(displayErrorMessages, true);
     }
   },
+
+  'click .delete'(event, instance) {
+    event.preventDefault();
+    Contacts.remove(FlowRouter.getParam('id'));
+    
+    // redirect back to Home_Page
+    FlowRouter.go('Home_Page');
+  },
 });
